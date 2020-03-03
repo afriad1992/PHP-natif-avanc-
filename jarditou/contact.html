@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<div lang="fr-FR">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport"
+              content="width=device-width, initial-scal=1, shrink-to-fit=no">
+        <title>Bienvenue chez Jarditou</title>
+        <!--
+            Utilisation de plusieurs balises link au lieu de la directive @import de css
+            suite à la lecture de l'article :
+            https://www.alsacreations.com/actu/lire/695-utilisation-style-css-import-link.html
+            TOUJOURS IMPORTER LES CSS DU FRAMEWORK EN PREMIER
+        -->
+        <link href="assets/css/bootstrap/bootstrap.min.css" rel="stylesheet">
+        <!-- J'ai fait le choix de DL les sources de bootstap et ses dépendances pour pouvoir faire tourner mon code si un des CDN est tombé -->
+        <link href="assets/css/main.css" rel="stylesheet">
+        <link href="assets/css/menu.css" rel="stylesheet">
+        <link href="assets/css/form.css" rel="stylesheet">        
+    </head>
+    <body>
+        <div class="container-fluid">
+            <header>
+                <!-- Bandeau Logo + légende -->
+                <figure class="Logo row align-items-center my-1">
+                    <img src="assets/img/jarditou_logo.jpg" alt="logo Jarditou" class="col-6 responsive-img"
+                         srcset="assets/img/jarditou_logo_50.jpg 640w,
+                                 assets/img/jarditou_logo_25.jpg 320w">
+                    <figcaption class="col-6 h1">Tout le jardin</figcaption>
+                </figure>
+                <!-- navbar pour le menu burger -->
+                <nav id="navbarHaut" class="navbar navbar-expand-md bg-dark navbar-dark my-1">
+                    <!-- bouton burger -->
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#burgerHaut">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <!-- Contenu du menu -->
+                    <div class="collapse navbar-collapse" id="burgerHaut">
+                        <ul class="navbar-nav listeMenu">
+                            <li class="nav-item">
+                                <a href="index.php" class="text-white">Accueil</a>
+                            </li><!--
+                            <li class="nav-item">
+                                <a href="tableau.html" class="text-white">Tableau</a>
+                            </li>-->
+                            <li class="nav-item">
+                                <a href="contact.html" class="text-white">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="row Pub">
+                    <img src="assets/img/promotion.jpg" class="Pub responsive-img col" alt="Promotion sur lames de terrasse"
+                    srcset="assets/img/promotion_50.jpg 640w,
+                            assets/img/promotion_25.jpg 320w">
+                </div>
+            </header>
+            <main>
+                <div class="row">
+                    <p class="h5 my-3 offset-1 offset-xl-0 mx-xl-3 col s12 col-lg-4">* Ces zones sont obligatoires</p>
+                </div>
+                <form action="http://bienvu.net/script.php" action="GET" class="">
+                    <div class="row">
+                        <fieldset class="mb-3 p-3 col s10 col-lg-4 offset-1 ">
+                            <legend class="">Vos Coordonnées</legend>
+                            <label for="nom">Votre nom*&nbsp;:</label>
+                            <input type="text" class="form-control" id="nom" name="nom" required >
+                            <label for="prenom">Votre prénom*&nbsp;:</label>
+                            <input type="text" class="form-control" id="prenom" name="prenom" required >
+                            <label for="sexe">Sexe*&nbsp;:</label>
+                            <div id="sexe" class="mb-2">
+                                <!-- Au sujet de l'usage de la propriété required avec les radio
+                                voir https://stackoverflow.com/questions/8287779/how-to-use-the-required-attribute-with-a-radio-input-field#8287947 -->
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" id="Fem" name="sexe" value="F" required>
+                                    <label class="form-check-label" for="Fem">Féminin</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" id="Mas" name="sexe" value="M" required >
+                                    <label class="form-check-label" for="Mas">Masculin</label>
+                                </div>
+                            </div>
+                            <label for="naiss">Date de Naissance*&nbsp;:</label>
+                            <input type="date" class="form-control" id="naiss" required >
+                            <label for="cp">Code Postal&nbsp;:</label>
+                            <input type="text" class="form-control" id="cp" pattern="[0-9]{5}" title="Le code postal doit faire 5 chiffres">
+                            <label for="addr">Adresse&nbsp;:</label>
+                            <input type="text" class="form-control" id="addr">
+                            <label for="mail">Email*&nbsp;:</label>
+                            <input type="email" class="form-control" id="mail" required placeholder="dave.loper@afpa.fr">
+                        </fieldset>
+                        <fieldset class="mb-3 p-3 col s10 col-lg-4 offset-1 ">
+                            <legend>Votre demande</legend>
+                            <label for="suj">Sujet*&nbsp;:</label>
+                            <select name="sujet" class="form-control" id="suj">
+                                <option>Mes commandes</option>
+                                <option>Question sur un produit</option>
+                                <option>Réclamation</option>
+                                <option>Autres</option>
+                            </select>
+                            <label for="question">Votre question*&nbsp;:</label>
+                            <textarea class="form-control" id="question" name="question"></textarea>
+                        </fieldset>
+                    </div>
+                    <div class="row my-3">
+                        <div class="form-check col s10 col-lg-5 offset-1 offset-xl-0 mx-xl-3">
+                                <input type="checkbox" name="accord" id="accord" class="form-check-input">
+                                <label for="accord" class="form-check-label">J'accepte le traitement informatique de ce formulaire</label>
+                        </div>
+                        <div class="col s10 col-lg-5offset-1 offset-xl-0 mx-xl-3 my-3">
+                            <button type="submit" class="btn btn-secondary">Envoyer</button>
+                            &nbsp;
+                            <button type="reset" class="btn btn-secondary">Annuler</button>
+                        </div>
+                        
+                    </div>
+                </form>               
+            </main>
+            <footer>
+                <nav id="navbarHaut" class="navbar navbar-expand-sm bg-dark navbar-dark no-gutters">
+                    <!-- bouton burger -->
+                    <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#burgerBas">
+                        <span class="navbar-toggler-icon"></span>
+                    </button> -->
+                    <!-- Contenu du menu -->
+                    <div id="burgerBas">
+                        <ul class="navbar-nav listeMenu">    
+                            <li><a href="legal.html" class="text-white">Mention légales</a></li>
+                            <li><a href="horaires.html" class="text-white">Horaires</a></li>
+                            <li><a href="plan.html" class="text-white">Plan du site</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </footer>
+        </div>
+        <!-- Ne plus ajouter de HTML autre que des scripts au-delà de ce commentaire -->
+        <script src="assets/js/jquery-3.3.1.slim.min.js"></script>
+        <script src="assets/js/popper.1.14.7.min.js"></script>
+        <script src="assets/js/bootstrap/bootstrap.min.js"></script>
+        <!-- Scripts pour la vérification du formulaire -->
+        <script src="assets/js/vars.js"></script>
+        <script src="assets/js/functions.js"></script>
+        <script src="assets/js/form.js"></script>
+    </body>
+</html>
